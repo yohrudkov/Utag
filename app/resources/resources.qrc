@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>back.svg</file>
+        <file>dir.svg</file>
+        <file>error.svg</file>
+        <file>flac.svg</file>
+        <file>folder.svg</file>
+        <file>logo.svg</file>
+        <file>mp3.svg</file>
+        <file>mtag.svg</file>
+        <file>name.svg</file>
+        <file>note.svg</file>
+        <file>ogg.svg</file>
+        <file>other.svg</file>
+        <file>rec1.svg</file>
+        <file>rec2.svg</file>
+        <file>save.svg</file>
+        <file>tag.svg</file>
+        <file>wav.svg</file>
+    </qresource>
+</RCC>
