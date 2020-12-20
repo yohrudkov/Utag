@@ -12,8 +12,6 @@ DirList::DirList(MainWindow *parent_cl, QWidget *parent) : QWidget(parent) {
 
 DirList::~DirList() {
     deleteWdgets();
-    for (auto &i : m_list)
-        delete i;
     m_list.clear();
 }
 
@@ -67,5 +65,6 @@ void DirList::labelProperties(int row, int column, std::string path) {
 
 void DirList::deleteWdgets(void) {
     for (int i = 0; i < dynamic_cast<QGridLayout*>(m_pwd->layout())->count(); i++)
-       dynamic_cast<QGridLayout *>(m_pwd->layout())->itemAt(i)->widget()->deleteLater();
+        dynamic_cast<QGridLayout *>(m_pwd->layout())->itemAt(i)->widget()->deleteLater();
+    m_list.clear();
 }

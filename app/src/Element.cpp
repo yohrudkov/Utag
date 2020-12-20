@@ -50,6 +50,7 @@ void Element::setNewInfo(t_Element new_info) {
         if (checkTag(m_name, "MP3"))
             lyricsSet(new_info.lyrics.toCString());
         addSongInfo(m_info);
+        m_info.save();
     }
 };
 
