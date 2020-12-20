@@ -163,6 +163,7 @@ void MainWindow::toSecondScreen(std::string path) {
     imgResize(ui->CurrS);
     imgResize(ui->NextS);
     imgResize(ui->PrevS);
+    imgResize(ui->Back);
 }
 
 void MainWindow::changeSort(void) {
