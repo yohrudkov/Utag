@@ -24,7 +24,8 @@ public:
                  bool rec);
     void sortVector(int flag,
                     std::vector<Element> &list);
-
+    void setList(std::string path,
+                 std::vector<Element> list);
     std::string &getDirName(void);
     std::map<std::string, std::vector<Element>> getList(void);
     std::vector<Element> &getVector(std::string path);

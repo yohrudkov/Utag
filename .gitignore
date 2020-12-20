@@ -33,5 +33,7 @@
 
 # Other
 *.DS_Store
+.idea
+.vscode/
 build/
 utag

@@ -129,23 +129,16 @@ void MainWindow::setInfo(void) {
 void MainWindow::saveInfo(void) {
     t_Element info;
 
-    if (!ui->AlbumLe->text().isEmpty())
-        info.album = ui->AlbumLe->text().toStdString().c_str();
-    if (!ui->ArtistLe->text().isEmpty())
-        info.artist = ui->ArtistLe->text().toStdString().c_str();
-    if (!ui->CommentLe->text().isEmpty())
-        info.comment = ui->CommentLe->text().toStdString().c_str();
-    if (!ui->GenreLe->text().isEmpty())
-        info.genre = ui->GenreLe->text().toStdString().c_str();
-    if (!ui->TitleLe->text().isEmpty())
-        info.title = ui->TitleLe->text().toStdString().c_str();
-    if (!ui->YearLe->text().isEmpty())
-        info.year = ui->YearLe->text().toStdString().c_str();
-    if (!ui->TrackLe->text().isEmpty())
-        info.track = ui->TrackLe->text().toStdString().c_str();
-    if (!ui->LyricsLe->toPlainText().isEmpty())
-        info.lyrics = ui->LyricsLe->toPlainText().toStdString().c_str();
+    info.album = !ui->AlbumLe->text().isEmpty() ? ui->AlbumLe->text().toStdString().c_str() : "";
+    info.artist = !ui->ArtistLe->text().isEmpty() ? ui->ArtistLe->text().toStdString().c_str() : "";
+    info.comment = !ui->CommentLe->text().isEmpty() ? ui->CommentLe->text().toStdString().c_str() : "";
+    info.genre = !ui->GenreLe->text().isEmpty() ? ui->GenreLe->text().toStdString().c_str() : "";
+    info.title = !ui->TitleLe->text().isEmpty() ? ui->TitleLe->text().toStdString().c_str() : "";
+    info.year = !ui->YearLe->text().isEmpty() ? ui->YearLe->text().toStdString().c_str() : "";
+    info.track = !ui->TrackLe->text().isEmpty() ? ui->TrackLe->text().toStdString().c_str() : "";
+    info.lyrics = !ui->LyricsLe->toPlainText().isEmpty() ? ui->LyricsLe->toPlainText().toStdString().c_str() : "";
     m_itr[m_index].setNewInfo(info);
+    m_dir.setList(m_itr[m_index].getPath(), m_itr);
 }
 
 void MainWindow::toFirstScreen(void) {
@@ -154,22 +147,26 @@ void MainWindow::toFirstScreen(void) {
 
 void MainWindow::toSecondScreen(std::string path) {
     m_index = 0;
-    m_itr = (*m_dir.getList().find(path)).second;
+    m_itr = m_dir.getList().find(path)->second;
     m_dir.sortVector(m_sort ? BY_NAME : BY_TAG, m_itr);
     ui->SongName->setText(QString(m_itr[m_index].getName().c_str()));
     ui->PrevS->hide();
     if (m_itr.size() == 1)
         ui->NextS->hide();
     else {
+        ui->NextS->show();
         setIconButton(ui->NextS, getPathIcon(m_index + 1));
         imgResize(ui->NextS);
     }
     setInfo();
     ui->Screen->setCurrentIndex(1);
+    imgResize(ui->CurrS);
+    imgResize(ui->NextS);
+    imgResize(ui->PrevS);
 }
 
 void MainWindow::changeSort(void) {
-    m_sort = m_sort ? false : true;
+    m_sort = !m_sort;
     ui->Sort->setIcon(m_sort ? QIcon(NAME) : QIcon(TAG));
     if (m_itr.empty())
         return ;
@@ -179,6 +176,11 @@ void MainWindow::changeSort(void) {
     ui->PrevS->hide();
     if (m_itr.size() == 1)
         ui->NextS->hide();
+    else {
+        ui->NextS->show();
+        setIconButton(ui->NextS, getPathIcon(m_index + 1));
+        imgResize(ui->NextS);
+    }
     setInfo();
 }
 
@@ -195,6 +197,7 @@ void MainWindow::changeDir(void) {
         m_list->deleteWdgets();
         m_dir.changeDir(dir.toStdString(), m_rec);
         m_list->setWidgets(m_dir.getList());
+        toFirstScreen();
     }
 }
 

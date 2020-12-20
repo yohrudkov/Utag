@@ -57,6 +57,13 @@ void Window::sortVector(int flag, std::vector<Element> &list) {
     });
 };
 
+void Window::setList(std::string path, std::vector<Element> list) {
+    for (auto &i : m_songs.find(path)->second)
+        for (auto &j : list)
+            if (i.getName() == j.getName())
+                i = j;
+};
+
 std::string &Window::getDirName(void) {
     return m_dir;
 };

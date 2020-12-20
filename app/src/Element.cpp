@@ -40,6 +40,7 @@ void Element::addSongInfo(TagLib::FileRef song) {
 
 void Element::setNewInfo(t_Element new_info) {
     if (!m_info.isNull() && m_info.tag()) {
+        m_song = new_info;
         m_info.tag()->setAlbum(new_info.album);
         m_info.tag()->setArtist(new_info.artist);
         m_info.tag()->setComment(new_info.comment);
@@ -47,18 +48,18 @@ void Element::setNewInfo(t_Element new_info) {
         m_info.tag()->setTitle(new_info.title);
         m_info.tag()->setYear(new_info.year.toInt());
         m_info.tag()->setTrack(new_info.track.toInt());
+        if (!checkTag(m_name, "MP3"))
+            m_song.lyrics.clear();
+        m_info.save();
         if (checkTag(m_name, "MP3"))
             lyricsSet(new_info.lyrics.toCString());
         addSongInfo(m_info);
-        m_info.save();
     }
 };
 
 void Element::lyricsSet(std::string lyrics) {
     TagLib::MPEG::File file(fullPath(m_path, const_cast<char *>(m_name.c_str())).c_str());
-    TagLib::ID3v2::FrameList frames = file.ID3v2Tag()->frameListMap()["USLT"];
-    TagLib::ID3v2::UnsynchronizedLyricsFrame *frame =
-        new TagLib::ID3v2::UnsynchronizedLyricsFrame;
+    TagLib::ID3v2::UnsynchronizedLyricsFrame *frame = new TagLib::ID3v2::UnsynchronizedLyricsFrame;
 
     if (!file.ID3v2Tag()->frameListMap()["USLT"].isEmpty())
         file.ID3v2Tag()->removeFrames(file.ID3v2Tag()->frameListMap()["USLT"].front()->frameID());
