@@ -83,7 +83,7 @@ To begin to use Utag project, run the following *`./utag`* exe file.
 ## License
 
 Collision is an open-sourced software licensed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-012345678901234567890123456789
+[Copyright (c) 2020 yohrudkov](https://github.com/yohrudkov/Utag/blob/main/LICENSE)
 
 ## Acknowledgments
 
