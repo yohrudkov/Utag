@@ -38,7 +38,16 @@
 Desktop application for reading and editing metadata of several popular audio formats.\
 Utag uses a graphical interface to make it easy to modify tags and is completely free to use.
 
-
+<p align="center">
+    <img alt="Utag"
+    title="Utag"
+    src="https://github.com/yohrudkov/Utag/blob/main/app/resources/img/1.jpg?raw=true"
+    width="300">
+    <img alt="Utag"
+    title="Utag"
+    src="https://github.com/yohrudkov/Utag/blob/main/app/resources/img/1.jpg?raw=true"
+    width="300">
+</p>
 
 ## Features
 
