@@ -24,7 +24,7 @@
 
 - [Introduction](#Introduction)
 - [Features](#Features)
-- [Build Process](#Build Process)
+- [Build Process](#Build-Process)
     - [Dependencies](#Dependencies)
     - [Preparation](#Preparation)
     - [Compilation](#Compilation)
@@ -82,8 +82,8 @@ To begin to use Utag project, run the following *`./utag`* exe file.
 
 ## License
 
-Collision is an open-sourced software licensed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-[Copyright (c) 2020 yohrudkov](https://github.com/yohrudkov/Utag/blob/main/LICENSE)
+Collision is an open-sourced software licensed under the [MIT license](https://en.wikipedia.org/wiki/MIT_License). \
+[Copyright (c) 2020 yohrudkov](https://github.com/yohrudkov/Utag/blob/main/LICENSE).
 
 ## Acknowledgments
 
