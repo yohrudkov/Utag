@@ -42,11 +42,11 @@ Utag uses a graphical interface to make it easy to modify tags and is completely
     <img alt="Utag"
     title="Utag"
     src="https://github.com/yohrudkov/Utag/blob/main/app/resources/img/1.jpg?raw=true"
-    width="500">
+    width="400">
     <img alt="Utag"
     title="Utag"
     src="https://github.com/yohrudkov/Utag/blob/main/app/resources/img/2.jpg?raw=true"
-    width="500">
+    width="400">
 </p>
 
 ## Features
