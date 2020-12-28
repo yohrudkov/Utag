@@ -53,14 +53,14 @@ Utag uses a graphical interface to make it easy to modify tags and is completely
 
 A few of the things you can do with Utag:
 
-* Supports several popular audio file formats
-* Allows to edit more tags of audio files (year, track number, etc.)
-* Supports the display and edit of the lyrics
-* Opens the directory with the files through the GUI
-* Edits an album image for an audio file and displays it via the GUI
-* Allows browsing the opened directory and all subdirectories recursively
-* Sort audio files in the directory
-* Accept a directory as a command-line argument
+* supports several popular audio file formats;
+* allows to edit more tags of audio files (year, track number, etc.);
+* supports the display and edit of the lyrics;
+* opens the directory with the files through the GUI;
+* edits an album image for an audio file and displays it via the GUI;
+* allows browsing the opened directory and all subdirectories recursively;
+* sort audio files in the directory;
+* accept a directory as a command-line argument.
 
 ## Build Process
 
